@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Dungeon Crawler</title>
+
+<!--  Tested in Chrome -->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<script src="Game.js"></script>
+
+<style type="text/css">
+.map  {border-collapse:collapse;border-spacing:0;margin:0px auto;}
+.map td{padding:12px 25px;border-style:solid;border-width:1px;}
+</style>
+
+
+<script>
+$(document).ready(function(){
+    $("#leftButton").click(function(){
+    	movement("left");
+    });
+    $("#upButton").click(function(){
+    	movement("up");
+    });
+    $("#downButton").click(function(){
+    	movement("down");
+    });
+    $("#rightButton").click(function(){
+    	movement("right");
+    });
+    $("#fightButton").click(function(){
+    	fight = "yes";
+    });
+    $("#runButton").click(function(){
+        fight = "no";
+    });
+    
+    $("#challengeSet").hide();
+
+    setInterval(function() {
+        checkWin();
+    	var playerInfo = "Health Points: " +user.hp+ " Prizes: " +user.prizes+ "";
+        $('#stats').text(playerInfo);
+        $('#events').text(currentEvent);
+    }, 10);
+    colorTable();
+});
+
+</script>
+</head>
+<body style="background-color:#343538;">
+
+<h3></h3>
+<div id="movementSet" align="center">
+<button type = "button" id="leftButton" class = "btn btn-default">Move Left</button>
+<button type = "button" id="upButton" class = "btn btn-default">Move Up</button>
+<button type = "button" id="downButton" class = "btn btn-default">Move Down</button>
+<button type = "button" id="rightButton" class = "btn btn-default">Move Right</button>
+</div>
+<br>
+<div id="challengeSet" align="center">
+<button type="button" id="fightButton" class="btn btn-danger">Fight</button>
+<button type="button" id="runButton" class="btn btn-info">Run</button>
+</div>
+
+<div id="stats" align="center" style="color:white"></div>
+<div id="events" align="center" style="color:white"></div>
+
+<table class="map" align="center" id="board">
+  <tr>
+    <td></td>
+	<td></td>
+	<td></td>
+    <td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+  </tr>
+  <tr>
+    <td></td>
+	<td></td>
+	<td></td>
+    <td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+  </tr>
+    <tr>
+    <td></td>
+	<td></td>
+	<td></td>
+    <td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+  </tr>
+   <tr>
+    <td></td>
+	<td></td>
+	<td></td>
+    <td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+  </tr>
+   <tr>
+    <td></td>
+	<td></td>
+	<td></td>
+    <td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+  </tr>
+   <tr>
+    <td></td>
+	<td></td>
+	<td></td>
+    <td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+  </tr>
+   <tr>
+    <td></td>
+	<td></td>
+	<td></td>
+    <td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+  </tr>
+   <tr>
+    <td></td>
+	<td></td>
+	<td></td>
+    <td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+  </tr>
+</table>
+
+</body>
+</html>
